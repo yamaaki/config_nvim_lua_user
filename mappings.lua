@@ -11,7 +11,10 @@ return {
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
-        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr) require("astronvim.utils.buffer").close(bufnr) end)
+        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr)
+          require("astronvim.utils.buffer").close(
+            bufnr)
+        end)
       end,
       desc = "Pick to close",
     },
@@ -70,6 +73,7 @@ return {
     [",n"] = { ":s/^\\(.\\) => \\[.\\]/> => [ ]/<cr>", desc = "Make them next" },
     [",e"] = { ":s/^\\(.\\) => \\[.\\]/  => [ ]/<cr>", desc = "Make them empty" },
     [",r"] = { ":s/^\\(.\\) => \\[.\\]/! => [ ]/<cr>", desc = "Make them reset" },
+    [",a"] = { ":s/^\\(.\\) => \\[.\\]/- => [ ]/<cr>", desc = "Make them active" },
   },
   t = {
     -- setting a mapping to false will disable it
