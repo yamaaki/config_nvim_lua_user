@@ -7,7 +7,7 @@ return {
     "copilot.lua",
     opts = {
       suggestion = {
-        auto_trigger = false,
+        -- auto_trigger = false,
         keymap = {
           accept = "<C-l>",
           accept_word = false,

@@ -50,10 +50,10 @@ return {
 
     -- ToDo
     [",d"] = { "0r!f[lrx", desc = "Make it done" },
-    [",n"] = { "0r>f[lr ", desc = "Make it next" },
     [",e"] = { "0r f[lr ", desc = "Make it empty" },
     [",r"] = { "0r!f[lr ", desc = "Make it reset" },
     [",a"] = { "0r-f[lr ", desc = "Make it active" },
+    [",f"] = { "0r>f[lr ", desc = "Make it forward" },
 
     -- 現在開いているファイルまでのパスを取得して make debug DIR=<dir> FILE=<file> を実行
     [",,"] = {
@@ -66,14 +66,17 @@ return {
       function() require("copilot.suggestion").toggle_auto_trigger() end,
       desc = "Toggle Copilot Auto Suggestion",
     },
+
+    -- すべての内容を削除
+    ["<leader>dd"] = { "<cmd>%delete<cr>", desc = "Delete all contents" },
   },
   v = {
     -- ToDo
     [",d"] = { ":s/^\\(.\\) => \\[.\\]/! => [x]/<cr>", desc = "Make them done" },
-    [",n"] = { ":s/^\\(.\\) => \\[.\\]/> => [ ]/<cr>", desc = "Make them next" },
     [",e"] = { ":s/^\\(.\\) => \\[.\\]/  => [ ]/<cr>", desc = "Make them empty" },
     [",r"] = { ":s/^\\(.\\) => \\[.\\]/! => [ ]/<cr>", desc = "Make them reset" },
     [",a"] = { ":s/^\\(.\\) => \\[.\\]/- => [ ]/<cr>", desc = "Make them active" },
+    [",f"] = { ":s/^\\(.\\) => \\[.\\]/> => [ ]/<cr>", desc = "Make them forward" },
   },
   t = {
     -- setting a mapping to false will disable it
