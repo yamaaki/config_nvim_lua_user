@@ -9,12 +9,12 @@ return {
       suggestion = {
         -- auto_trigger = false,
         keymap = {
+          accept_word = "<C-o>",
+          accept_line = "<C-m>",
           accept = "<C-l>",
-          accept_word = false,
-          accept_line = false,
           next = "<C-n>",
           prev = "<C-p>",
-          dismiss = "<C/>",
+          dismiss = false,
         },
       },
     },
