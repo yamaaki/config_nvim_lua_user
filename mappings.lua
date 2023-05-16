@@ -34,6 +34,7 @@ return {
     ["<C-S-h>"] = { function() require("smart-splits").resize_left() end, desc = "Resize split left" },
     ["<C-S-l>"] = { function() require("smart-splits").resize_right() end, desc = "Resize split right" },
 
+    -- Next / Prev buffer.
     ["nn"] = {
       function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
       desc = "Previous buffer",
@@ -41,6 +42,27 @@ return {
     ["mm"] = {
       function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
       desc = "Next buffer",
+    },
+
+    -- Close buffer.
+    ["cc"] = {
+      function()
+        local buffers = vim.api.nvim_list_bufs()
+
+        local open_buffers = 0
+        for _, bufnr in ipairs(buffers) do
+          if vim.api.nvim_buf_is_loaded(bufnr) then
+            open_buffers = open_buffers + 1
+          end
+        end
+
+        if open_buffers == 1 then
+          vim.cmd('quit')
+        else
+          require("astronvim.utils.buffer").close()
+        end
+      end,
+      desc = "Close buffer",
     },
     ["ww"] = {
       function() require("zen-mode").toggle({ window = { width = .9, height = .9 } }) end,
@@ -88,7 +110,7 @@ return {
     ["<C-S-h>"] = { function() require("smart-splits").resize_left() end, desc = "Resize split left" },
     ["<C-S-l>"] = { function() require("smart-splits").resize_right() end, desc = "Resize split right" },
 
-    -- -- Next / Prev buffer.
+    -- Next / Prev buffer.
     ["nn"] = {
       function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
       desc = "Previous buffer",
@@ -96,6 +118,27 @@ return {
     ["mm"] = {
       function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
       desc = "Next buffer",
+    },
+
+    -- Close buffer.
+    ["cc"] = {
+      function()
+        local buffers = vim.api.nvim_list_bufs()
+
+        local open_buffers = 0
+        for _, bufnr in ipairs(buffers) do
+          if vim.api.nvim_buf_is_loaded(bufnr) then
+            open_buffers = open_buffers + 1
+          end
+        end
+
+        if open_buffers == 1 then
+          vim.cmd('quit')
+        else
+          require("astronvim.utils.buffer").close()
+        end
+      end,
+      desc = "Close buffer",
     },
 
     -- <Esc> で Normal Mode に戻る
