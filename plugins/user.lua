@@ -1,3 +1,8 @@
+-- Minimap
+vim.g.minimap_width = 10
+vim.g.minimap_auto_start = 1
+vim.g.minimap_auto_start_win_enter = 1
+
 return {
   -- You can also add new plugins here as well:
   -- Add plugins, the lazy syntax
@@ -24,4 +29,8 @@ return {
       require("todo-comments").setup {}
     end,
   },
+  {
+    "wfxr/minimap.vim",
+    lazy = false,
+  }
 }
